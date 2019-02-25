@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            background-color: rgb(238, 238, 239);
+        }
+        #parent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+        }
+        #helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        #content {
+            display: inline-block;
+            vertical-align: middle;
+            *display:inline;
+            zoom:1;
+        }
+    </style>
+
+    <script type="text/javascript" src="finereport.js"></script>
+    <script>
+        // 使用 window.location 后会影响 socket.io 的连接。启动软件的逻辑都放这里，嵌在 iframe 里用就不会有问题
+        $(document).ready(function () {
+            $('#loadingTip').html("正在启动本地打印软件，请稍后...");
+
+            // 启动本地打印软件（exe 或 app）
+            window.location = "finereport:";
+        });
+    </script>
+</head>
+<body>
+<div id="parent">
+    <span id="helper"></span>
+    <div id="content">
+        <img src="images/printLoading.gif">
+        <p id="loadingTip" style="font-size:16px; line-height:22px"></p>
+    </div>
+</div>
+</body>
+</html>

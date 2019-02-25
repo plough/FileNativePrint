@@ -1,0 +1,95 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <title>PrintTest</title>
+      <link rel="stylesheet" href="resource/fr2.css" type="text/css" media="screen" title="no title" charset="utf-8">
+      <script charset="utf-8" src="resource/finereport.js"></script>
+      <script charset="utf-8" src="resource/socket.io.js"></script>
+      <script charset="utf-8" src="resource/jquery.watermark.js"></script>
+    </head>
+    <body style="overflow: scroll">
+      <h1>FineReport 打印 api 使用说明</h1>
+
+      <ul>
+        <li>可以打印 pdf 或图片，接口一样，只是 url 不同</li>
+        <li>pdf 和图片总是在打印区域居中，边距默认为0，设置边距可以起到偏移的效果</li>
+        <li>对于 pdf，会预先读取页面大小、布局，作为默认设置。例如，对于宽度 &gt; 高度的 pdf，默认使用横向布局打印</li>
+      </ul>
+
+      <p>必须参数两个：</p>
+
+      <ul>
+        <li>printUrl，pdf 或图片的完整url路径，或本地文件绝对路径</li>
+        <li>isCustomPrint（用于区别外部打印和报表内置打印，始终为 true）</li>
+      </ul>
+
+      <p>重要可选参数：</p>
+
+      <ul>
+        <li>isPopUp，是否弹出设置框，默认为 true</li>
+        <li>beforePrint，打印开始前的回调函数，默认未定义</li>
+        <li>afterPrint，打印完成后的回调函数，默认未定义</li>
+      </ul>
+
+      <p>其他可选参数（为了方便不弹设置框的情况，可以直接传入打印设置项）：</p>
+
+      <ul>
+        <li>printerName，打印机名称（string）</li>
+        <li>copy，打印份数（int）</li>
+        <li>pageType，打印页类型（int），0: 所有页，1: 当前页，2: 指定页</li>
+        <li>index，页码范围（string）</li>
+        <li>orientation，布局（int），0: 纵向，1: 横向</li>
+        <li>paperSize，纸张大小名称（string），通常为 “A4”; 支持自定义纸张大小，格式为“[width, height]”，例如“[210, 297]”（单位：毫米）</li>
+        <li>marginTop，上边距（float）</li>
+        <li>marginLeft，左边距（float）</li>
+        <li>marginBottom，下边距（float）</li>
+        <li>marginRight，右边距（float）</li>
+        <li>quietPrint，是否开启静默打印（boolean）</li>
+      </ul>
+
+      <p>示例1 ：</p>
+
+      <pre><code>
+      var printUrl = &#39;https://cloud.githubusercontent.com/assets/729479/5331546/d70c52a2-7e72-11e4-932f-953682404ee3.png&#39;;
+
+      var config = {
+              printUrl : printUrl,
+              isPopUp : true,
+              isCustomPrint: true,
+              beforePrint: function(){alert(&#39;before&#39;);},
+              afterPrint: function(){alert(&#39;after&#39;);}
+      };
+
+      FR.doURLPrint(config);
+      </code></pre>
+
+      <p>示例2 ：</p>
+
+      <pre><code>
+      var printUrl = &#39;https://cloud.githubusercontent.com/assets/729479/5331546/d70c52a2-7e72-11e4-932f-953682404ee3.png&#39;;
+
+      var config = {
+              printUrl : printUrl,
+              isPopUp : true,
+              isCustomPrint: true,
+              beforePrint: function(){alert(&#39;before&#39;);},
+              afterPrint: function(){alert(&#39;after&#39;);},
+              printerName: &#39;PDFwriter&#39;,
+              copy: 1,
+              pageType: 0,
+              index: &#39;1-2&#39;,
+              orientation: 0,
+              paperSize: &#39;A4&#39;,
+              marginTop: 0,
+              marginLeft: 0,
+              marginBottom: 0,
+              marginRight: 0,
+              quietPrint: false
+      };
+
+      FR.doURLPrint(config);
+      </code></pre>
+    </body>
+  </html>

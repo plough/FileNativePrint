@@ -1,0 +1,503 @@
+html, body {
+    -webkit-touch-callout: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 0pt none;
+}
+
+/**Core Panel Start**/
+.fr-core-panel{
+    overflow:hidden;
+}
+
+.fr-core-panel-header {
+    position: relative;
+}
+.fr-core-panel-body-noheader{
+    border-top-width:1px;
+}
+.fr-core-panel-header-noborder{
+    border-width:0px;
+    border-bottom:1px solid #99BBE8;
+}
+.fr-core-panel-title {
+    color: #ffffff;
+    padding: 0 0 0 9px;
+    font-size:12px;
+    font-family: simsun;
+    font-weight: bold;
+}
+
+.fr-core-panel-tool-close{
+    background:url('images/close.png') no-repeat center;
+    /*wikky:兼容IE6*/
+    *background:url('images/close.gif') no-repeat center;
+}
+
+.fr-core-panel-tool-close-hover{
+    background:url('images/close_hover.png') no-repeat center;
+    /*wikky:兼容IE6*/
+    *background:url('images/close_hover.gif') no-repeat center;
+}
+.fr-core-panel-tool-close-down{
+    background:url('images/close_click.png') no-repeat center;
+    /*wikky:兼容IE6*/
+    *background:url('images/close_click.gif') no-repeat center;
+}
+.fr-core-panel-tool-over {
+    cursor: pointer;
+}
+
+.fr-core-panel-tool div{
+    display:block;
+    width:19px;
+    height:19px;
+    margin-left:2px;
+    cursor:pointer;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+}
+
+.fr-core-panel-body {
+
+}
+.fr-core-panel-body-border {
+    border: 1px solid #A7AEB2;
+}
+.fr-core-panel-body-noborder{
+    border-width:0;
+}
+
+.fr-core-panel-loading {
+    font-size: 9pt;
+    font-family: simsun;
+    font-weight: bold;
+    padding:11px 0px 10px 30px;
+    background:url('images/loading.gif') no-repeat 10px 10px;
+}
+
+.fr-core-panel-content-separate {
+	box-shadow: 0px -10px 5px -10px #bbbbbb inset;
+	-moz-box-shadow: 0px -10px 5px -10px #bbbbbb inset;
+    -webkit-box-shadow: 0px -10px 5px -10px #bbbbbb inset;
+    border-bottom: solid 1px #bbbbbb;
+}
+
+/**blue style**/
+
+.fr-core-panel-header.fr-core-panel-style-blue {
+    background: #2792D7;
+}
+/**gray style**/
+.fr-core-panel-header.fr-core-panel-style-gray {
+    background: #A7AEB2;
+}
+/**green style*/
+.fr-core-panel-header.fr-core-panel-style-green {
+    background: #76db5f;
+}
+
+/**Core Panel End**/
+
+/**Core Window Start**/
+.fr-core-window {
+    color: #000;
+    overflow: hidden;
+    box-shadow: 0 0 5px #4a4a4a;
+    border-radius:8px 8px 3px 3px;
+    behavior: url('com/fr/web/core/hack/PIE.htc');
+}
+.fr-core-window-no-hack {
+    behavior: '';
+}
+.fr-core-window-shadow{
+    position:absolute;
+    background:#ddd;
+    -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+.fr-core-window-header{
+    border-radius: 8px 8px 0 0;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
+    behavior: url('com/fr/web/core/hack/PIE.htc');
+}
+.fr-core-window-header.fr-core-panel-style-blue{
+    background: #058BEC;
+}
+.fr-core-window .fr-core-window-body{
+    background:#fff;
+    border-top-width: 0;
+    border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px ;
+}
+.fr-core-window-proxy{
+    position:absolute;
+    overflow:hidden;
+    border:1px dashed #15428b;
+}
+
+.fr-core-window-proxy {
+    position: absolute;
+    overflow: hidden;
+}
+.fr-core-window-proxy-mask {
+    position: absolute;
+    filter: alpha(opacity=5);
+    opacity: 0.05;
+}
+.fr-core-window-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0.40;
+    font-size: 1px;
+    *zoom: 1;
+    overflow: hidden;
+    background:white\9;/** bug 72192 ie10,9版本弹出框z-index失效**/
+}
+
+/*FRButton css start*/
+.ui-state-enabled .fr-widget-click {
+    cursor: pointer;
+}
+
+.ui-state-disabled .fr-widget-click {
+    cursor: default;
+}
+.ui-state-disabled {
+    cursor: default !important;
+    position: relative;     /**会对ie6/7透明度设置产生影响*/
+    filter:Alpha(Opacity=50);
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    background-image: none;
+    width: 100%;              /**wikky:没有width or height ie8以下的浏览器透明度无效*/
+}
+
+.fr-core-panel-body-noheader{
+    border-top-width:1px;
+}
+
+.fr-core-panel-body-border {
+    border: 1px solid #A7AEB2;
+}
+.fr-core-panel-body-noborder{
+    border-width:0;
+}
+
+.fr-core-window .fr-core-window-body{
+    background:#fff;
+    border-top-width: 0;
+    border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px ;
+}
+
+.grey-pane {
+    background: #F0F0F1;
+}
+
+/*FRLabel css start*/
+.fr-label {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	margin:0;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 12px;
+	color: #000;
+}
+
+div.fr-core-btn {
+    position: relative;
+    font-size: 12px;
+    font-family: "microsoft yahei", sans-serif;
+    cursor: pointer !important;
+    -khtml-user-select:none;
+    -moz-user-select:-moz-none;
+    -webkit-user-select:none;
+}
+div.fr-core-btn-inner{
+    position : absolute;
+    top: 0;
+    left: 0;
+}
+span.fr-core-btn-text{
+    position : absolute;
+    top: 0;
+    left: 0;
+}
+/**style blue**/
+div.fr-core-btn-style-blue {
+    position: relative;
+    border: 1px solid #4495d3;
+    background: #2792D7;
+    color: #ffffff;
+    border-radius: 3px;
+    text-shadow: 0 0 1px #7f7f7f;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    behavior: url('com/fr/web/core/hack/PIE.htc');
+}
+div.fr-core-btn-hover-blue {
+    background: #309CE4;
+}
+
+
+/**style gray start**/
+div.fr-core-btn-style-gray {
+    position: relative;
+    border: 1px solid #c5c5c5;
+    background: #e9e9e9;
+    border-radius: 3px;
+    color: #585858;
+    text-shadow: 0 0 1px #cbcbcb;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    behavior: url('com/fr/web/core/hack/PIE.htc');
+}
+div.fr-core-btn-hover-gray {
+    background: #f2f2f2;
+}
+/**style gray end**/
+
+/**style white start**/
+div.fr-core-btn-style-white {
+    position: relative;
+    border: 1px solid #c5c5c5;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #585858;
+    text-shadow: 0 0 1px #cbcbcb;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    behavior: url('com/fr/web/core/hack/PIE.htc');
+}
+div.fr-core-btn-hover-white {
+    background: #f7f7f7;
+}
+/**style gray end**/
+
+.x-text{
+    color: #000;
+}
+
+/*FRCheckBox css start*/
+
+.fr-checkbox-checkon {
+    background: transparent url('images/checkon_f.png') no-repeat scroll left center;
+    padding-left: 18px;
+    font-size: 12px;
+}
+.fr-checkbox-checkoff {
+    background: transparent url('images/checkoff_f.png') no-repeat scroll left center;
+    padding-left: 18px;
+    font-size: 12px;
+}
+/*FRCheckBox css end*/
+
+/*FRTriggerEditor css start*/
+input::-ms-clear { display: none; }
+.view-container {
+    position : absolute;
+    left : 0;
+    top : 0;
+    width : 0;
+    height : 0;
+    z-index : 10010;
+}
+
+.fr-trigger{
+	font: 12px Arial, Helvetica, sans-serif;
+	overflow:visible;
+	display:block;
+	height:22px;
+	float:left;
+	position:relative;
+	background-color:#ffffff;
+}
+.fr-trigger-texteditor{
+    border: 0;
+    margin: 0;
+    padding:1px 3px !important;
+    height: 18px;
+    line-height: 18px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    vertical-align: middle;
+    font:normal 12px tahoma,arial,helvetica,sans-serif;
+    outline:none;
+}
+.fr-trigger-text{
+    background-color: #FFFFFF;
+    border:1px solid #B5B8C8;
+    overflow:hidden;
+    height:20px;
+    float:left;
+    width:80px;
+}
+.fr-trigger-text-focus{
+    border:1px solid #7EADD9;
+}
+.fr-trigger-text-invalid{
+    background:#FFFFFF url('images/jquery/invalid_line.gif') repeat-x scroll center bottom!important;
+}
+.fr-trigger-invalid{
+    border:1px solid #DD7870;
+}
+.fr-trigger-btn-up{
+    background: #47a8ea;
+}
+
+.fr-trigger-btn-over, .fr-trigger-btn-down{
+    background: #4f97d1;
+}
+
+.fr-trigger-btn-up, .fr-trigger-btn-over, .fr-trigger-btn-down{
+    float:left;
+    overflow: hidden;
+    width:18px;
+    height:22px;
+    *height : 20px;
+    cursor:pointer;
+    white-space: nowrap;
+    border: 1px solid #c0c0c0;
+    border-left-style:none;
+
+}
+.ui-state-disabled .fr-trigger-btn-up,.ui-state-disabled .fr-trigger-btn-over,.ui-state-disabled .fr-trigger-btn-down{
+    cursor: default;
+}
+ .fr-trigger-center {
+    width:100%;
+    height:7px;
+    font-size:7px; /*for ie6 */
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="images/form/button/combo_arrow_f.png");
+    background/*屏蔽IE6*/ :url('images/form/button/combo_arrow_f.png') no-repeat 0px 0px;
+    *background:none;
+}
+
+.fr-trigger-editor td {
+	padding:0 !important
+}
+.fr-trigger-editor {
+    overflow: hidden;
+}
+
+.fr-trigger-center-container {
+	vertical-align:middle;
+}
+
+.fr-trigger-click .fr-trigger-center-container .fr-trigger-center {
+	width:100%;
+	height:14px;
+	background:url('images/form/button/combo_default.png') no-repeat 0px 0px;
+}
+
+.fr-trigger-btn-up .fr-trigger-bottom {
+	width:100%;
+	height:2px;
+	background:url('images/form/button/combo_bottom.png') no-repeat 0px 0px;
+}
+/*FRTriggerEditor css end*/
+
+
+.fr-texteditor {
+    height:18px;
+    line-height:18px;
+    border:1px solid #B5B8C8;
+    vertical-align:middle;
+    padding:1px 3px !important;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin:0;
+    /*bug7845去掉*/
+    /* *margin-top:-1px;*/
+    font-size: 12px;
+    /*下面这个只有上半部分才有的白色背景不知道什么个意思*/
+    /*background:#FFFFFF url('images/ext/text-bg.gif') repeat-x scroll center top;*/
+}
+
+/*FR.Radio start*/
+.fr-radio-radioon {
+    background: transparent url('images/radioon_f.png') no-repeat scroll left center;
+    padding-left: 18px;
+}
+.fr-radio-radiooff {
+    background: transparent url('images/radiooff_f.png') no-repeat scroll left center;
+    padding-left: 18px;
+}
+
+/*FR.Radio end*/
+
+.view-container {
+    position : absolute;
+    left : 0;
+    top : 0;
+    width : 0;
+    height : 0;
+    z-index : 10010;
+}
+
+/*FRComboBoxEditor css start*/
+.fr-combo-list {
+	color: #000;
+    border:1px solid #98C0F4;
+    background:white none repeat scroll 0 0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position:relative;
+    opacity : 1;
+    box-shadow: 3px 3px 4px #999;
+    -moz-box-shadow: 3px 3px 4px #999;
+    -webkit-box-shadow: 3px 3px 4px #999;
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+}
+.fr-combo-list-item {
+    -x-system-font:none;
+    font-family:tahoma,arial,helvetica,sans-serif;
+    font-size:12px;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    height:18px;
+    line-height:18px;
+    overflow:hidden;
+    border:1px solid #FFFFFF;
+    /*white-space:pre;*/
+    white-space: nowrap;
+}
+.fr-combo-list-item-noselect {
+    display: block;
+    color: #cccccc;
+}
+.fr-combo-selected {
+    background:#DFE8F6 none repeat scroll 0 0;
+    border:1px dotted #A3BAE9 !important;
+    cursor:pointer;
+}
+.fr-combo-notinlist {
+    border:1px solid #CDCD00;
+}
+/*FRComboBoxEditor css end*/

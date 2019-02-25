@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        #parent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+        }
+        #helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        #content {
+            display: inline-block;
+            vertical-align: middle;
+            *display:inline;
+            zoom:1;
+        }
+        p#title {
+            font-size: 16px;
+            line-height: 22px;
+        }
+        p#tip {
+            font-size: 12px;
+            line-height: 24px;
+            margin-top: 30px;
+        }
+        a:link {color: blue}
+        a:visited {color: blue}
+    </style>
+
+    <script type="text/javascript" src="finereport.js"></script>
+    <script type="text/javascript">
+        function isWindows() {
+            return /windows|win32/i.test(navigator.userAgent);
+        }
+        function getDownloadPrintSoftwareURL() {
+            var winUrl = "http://updatenine.finereport.com/FinePrint_windows_2_0.exe";
+            var macUrl = "http://updatenine.finereport.com/FinePrint_macos_2_0.dmg"
+            return isWindows() ? winUrl : macUrl;
+        }
+        function closeWindow()  {
+            window.parent.FR.clearAllDialog();
+        }
+        $(document).ready(function () {
+            $('#title').html("本地打印软件启动失败！");
+            var attr1 = 'href="' + getDownloadPrintSoftwareURL() + '" target="_blank"';
+            var attr2 = 'href="http://help.finereport.com/doc-view-2387.html" target="_blank"';
+            var attr3 = 'href="javascript:closeWindow()"';
+            $('#tip').html("安装本地打印软件后，才能继续打印，可点击<a " + attr1
+                + ">下载安装</a>；<br>若已安装，可<a " + attr2
+                + ">查看启动帮助</a>或<a " + attr3 + ">关闭当前窗口</a>。");
+        });
+    </script>
+
+</head>
+<body>
+    <div id="parent">
+        <span id="helper"></span>
+        <div id="content">
+            <img src="images/printLoadingFailed.png">
+            <p id="title"></p>
+            <p id="tip"></p>
+        </div>
+    </div>
+</body>
+</html>
