@@ -28280,18 +28280,14 @@ FR.Core.Plugin.ProcessNeedOffCpt = FR.Core.Plugin.ProcessNeedOffCpt || {};
             });
             nativePrintSocket.on('getConfigData', function (e) {
                 var data = FR.jsonDecode(FR.cjkDecode(e.message));
-                if (data.isQuietPrint) {
+                // debugger;
+                if (data.config.quietPrint) {
                     // 静默打印，不需要其他参数
                     if (config.isCustomPrint) {
                         FR.newNativePrintWithArgs($.extend({
                             url: config.customFileUrl,
                             isCustomPrint: true
                         }, config));
-                    } else {
-                        FR.newNativePrintWithArgs({
-                            url: printUrl + "?sessionID=" + sessionID + "&op=fr_applet&cmd=print",
-                            sessionID: sessionID
-                        });
                     }
                 } else if (config.isPopUp) {
                     nativePrintLoadingDialog.destroy();
